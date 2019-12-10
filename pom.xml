@@ -15,8 +15,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <jdbc.driver.version>8.0.16</jdbc.driver.version>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <mybatis.version>3.2.5</mybatis.version>
   </properties>
 
   <dependencies>
@@ -26,6 +29,22 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- Begin: mybatis依赖 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+    <!-- End: mybatis依赖 -->
+    <!-- Begin: 数据库依赖包 -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${jdbc.driver.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- End: 数据库依赖包 -->
   </dependencies>
 
   <build>
