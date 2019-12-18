@@ -10,6 +10,7 @@ import java.io.*;
 
 public class HpDicController {
 
+    //导入单词
     public void wordImport(String path) throws IOException {
         InputStream inputStream = Resources.getResourceAsStream("mybatis.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -29,10 +30,21 @@ public class HpDicController {
                 line=new FileUtil().lineReplace(line);
                 //根据空格切割
                 String[] words = line.split(" ",-1);
-                for(int index=0;index<=words.length;index++){
+                for(int index=0;index<=words.length-1;index++){
+                    //插入数据库
                     sqlSession.insert("insertWords",words[index]);
                 }
+
             }
+            //删除空格
+            sqlSession.delete("deleteNull");
+            System.out.println("删除空字符完毕");
+
+            //删除数字
+            sqlSession.delete("deleteNum");
+            System.out.println("删除数字完毕");
+            //删除重复数据
+
             sqlSession.close();
             br.close();
 
@@ -42,8 +54,6 @@ public class HpDicController {
     }
 
     public void addWord() throws IOException{
-        //String path="mybatis.xml";
-
         InputStream inputStream = Resources.getResourceAsStream("mybatis.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession=sqlSessionFactory.openSession(true);
@@ -59,25 +69,12 @@ public class HpDicController {
     }
 
     public static void main(String[] args) throws IOException {
-/*        String path = HpDicController.class.getClassLoader().getResource("").getPath();
-        String path=HpDicController.class.getClass().getResource("/").getPath();
-        String resource=path+"mybatis.xml";*/
-/*
-        String path="mybatis.xml";
 
-        InputStream inputStream = Resources.getResourceAsStream(path);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession sqlSession=sqlSessionFactory.openSession(true);
-        try{
-            int a =sqlSession.selectOne("selectNum");
-            System.out.println(a);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }finally {
-            sqlSession.close();
-        }
-*/
 
+        String path="D:\\logs\\service_log.txt";
+
+        HpDicController hpDicController=new HpDicController();
+        hpDicController.wordImport(path);
 
 
 

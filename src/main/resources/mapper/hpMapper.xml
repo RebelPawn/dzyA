@@ -11,6 +11,14 @@
         insert into hp1words (word) values(#{word})
     </insert>
 
+    <delete id="deleteNull">
+        delete from hp1words where word ='' or word is null
+    </delete>
+
+    <delete id="deleteNum">
+         delete from hp1words where (word REGEXP '[^0-9.]')=0;
+    </delete>
+
     <update id="updateWords">
 
     </update>
