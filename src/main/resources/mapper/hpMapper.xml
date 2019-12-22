@@ -19,8 +19,21 @@
          delete from hp1words where (word REGEXP '[^0-9.]')=0;
     </delete>
 
-    <update id="updateWords">
+    <!--删除重复数据-->
+    <delete id="delRepeat">
+        delete from hp1words where id in(
+        select * from (
+        select id from hp1words t1
+        where t1.id !=
+        (select max(t2.id) from hp1words t2
+        where t1.word=t2.word)
+        ) as t3)
+    </delete>
 
+    <update id="updateWords">
+update hp1words s set s.meaning=(
+select meaning from words t where t.Word=s.word
+)
     </update>
 
 </mapper>
