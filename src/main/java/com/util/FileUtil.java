@@ -15,11 +15,30 @@ public class FileUtil {
     }
 
 
-    public void getFileList(String path){
+    //获取文件列表
+    public File[] getFileList(String path){
         File file=new File(path);
         File[] fileList=file.listFiles();
-        for(File file1:fileList){
-            System.out.println(file1.getName());
+        return  fileList;
+    }
+
+    //重命名
+    public void renameFile(String path){
+        FileUtil fileUtil=new FileUtil();
+        //获取文件
+        File[] files=fileUtil.getFileList(path);
+
+        File newFile=null;
+        String newFileName=null;
+        for(File file1:files){
+            //获取文件名
+            String filename=file1.getName();
+            //替换
+            newFileName=filename.replace("-尚硅谷-老韩图解Java数据结构和算法-"," ");
+            //重命名
+            newFile=new File(path+newFileName);
+            file1.renameTo(newFile);
+            //System.out.println(file1.getName());
         }
 
     }
@@ -30,26 +49,11 @@ public class FileUtil {
     }
 
     public static void main(String[] args) {
-        String path="E:\\BaiduNetdiskDownload\\尚硅谷Java数据结构和算法\\视频";
+        String path="E:\\BaiduNetdiskDownload\\尚硅谷Java数据结构和算法\\test\\";
         FileUtil fileUtil=new FileUtil();
-        fileUtil.getFileList(path);
+        fileUtil.renameFile(path);
     }
 
-/*    private String ReadVideoTime(File source) {
-        Encoder encoder = new Encoder();
-        String length = "";
-        try {
-            MultimediaInfo m = encoder.getInfo(source);
-            long ls = m.getDuration()/1000;
-            int hour = (int) (ls/3600);
-            int minute = (int) (ls%3600)/60;
-            int second = (int) (ls-hour*3600-minute*60);
-            length = hour+"'"+minute+"''"+second+"'''";
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return length;
-    }*/
 
 
 }
