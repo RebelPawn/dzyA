@@ -1,7 +1,12 @@
 package com.util;
 
+
+
+import ws.schild.jave.MultimediaInfo;
+import ws.schild.jave.MultimediaObject;
+
 import java.io.File;
-import java.util.List;
+
 
 public class FileUtil {
 
@@ -43,12 +48,33 @@ public class FileUtil {
 
     }
 
-    private String vidioTest(File source){
+    //获取视频时间长
+    public int videoTime(String sourceURL){
+        File source=new File(sourceURL);
+        int length = 0;
+        try{
+            MultimediaObject multimediaObject=new MultimediaObject(source);
+            MultimediaInfo result=multimediaObject.getInfo();
+            long ls=result.getDuration()/1000;
+            length=(int) (ls % 3600) / 60;
+            //length=String.valueOf(minute);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-        return "";
+
+        return length;
     }
 
     public static void main(String[] args) {
+       /* String path="E:\\BaiduNetdiskDownload\\尚硅谷Java数据结构和算法\\test\\";
+        FileUtil fileUtil=new FileUtil();
+        fileUtil.renameFile(path);*/
+
+        /*String path="E:\\BaiduNetdiskDownload\\尚硅谷Java数据结构和算法\\test\\001 几个经典的算法面试题(1).avi";
+        FileUtil fileUtil=new FileUtil();
+        String length=fileUtil.vidioTime(path);
+        System.out.println(length);*/
         String path="E:\\BaiduNetdiskDownload\\尚硅谷Java数据结构和算法\\test\\";
         FileUtil fileUtil=new FileUtil();
         fileUtil.renameFile(path);
