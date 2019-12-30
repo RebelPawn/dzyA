@@ -13,13 +13,20 @@ public class VideoController {
         FileUtil fileUtil=new FileUtil();
         fileUtil.renameFile(path);
         File[] files=fileUtil.getFileList(path);
+        List<String[]> infos=null;
+        String[] info={"",""};
         for(int index=0;index<files.length;index++){
+
             String fileName=files[index].getName();
-            int length=fileUtil.videoTime(path);
+            int length=fileUtil.videoTime(path+fileName);
+            info[0]=fileName;
+            info[1]=String.valueOf(length);
+
+            infos.add(index,info);
         }
 
 
-        return  null;
+        return  infos;
     }
 
     public void add(List<String[]> videoInfos){
@@ -28,8 +35,11 @@ public class VideoController {
     public static void main(String[] args) {
         VideoController vc=new VideoController();
 
-        String path="E:\\BaiduNetdiskDownload\\尚硅谷Java数据结构和算法\\test";
+        String path="E:\\BaiduNetdiskDownload\\尚硅谷Java数据结构和算法\\test\\";
         List<String[]> infos=vc.getList(path);
-        vc.add(infos);
+        for (String[] info:infos){
+            System.out.println(info[0]+"----"+info[1]);
+        }
+        //vc.add(infos);
     }
 }
