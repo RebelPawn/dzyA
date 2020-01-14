@@ -31,8 +31,9 @@
     </delete>
 
     <update id="updateWords">
-        update hp1words s set s.meaning=(
-        select meaning from words t where t.Word=s.word)
+update hp1words s set s.meaning=(
+select meaning from words t where t.Word=s.word
+)
     </update>
 
 </mapper>

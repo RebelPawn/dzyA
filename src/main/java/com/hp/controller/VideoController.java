@@ -1,8 +1,14 @@
 package com.hp.controller;
 
 import com.util.FileUtil;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,15 +34,19 @@ public class VideoController {
         return  infos;
     }
 
-    public void add(List<String[]> videoInfos){
+    public void add(List<String[]> videoInfos) throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream("mybatis.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession=sqlSessionFactory.openSession(true);
 
         for (String[] info:videoInfos){
             int num=Integer.parseInt(info[0].split(" ")[0]);
             String fileName=info[0].split(" ")[1];
             System.out.println(num+"-----"+fileName+"----"+info[1]);
+           //  sqlSession.insert();
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         VideoController vc=new VideoController();
 
         String path="E:\\BaiduNetdiskDownload\\尚硅谷Java数据结构和算法\\test\\";
