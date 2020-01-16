@@ -41,7 +41,7 @@ public class NumController {
         return result;
     }
 
-    public int[] createNum(int numSize, int average,int min,int max ){
+    public int[] createNum(int numSize, double average,int min,int max ){
         int sum=0;
         Random rand = new Random();
 
@@ -52,19 +52,19 @@ public class NumController {
             result[i] = rand1;
             sum+=rand1;
         }
-        result[numSize - 1] = average*numSize-sum;
+        result[numSize - 1] = (int) (Math.round(average*numSize)-sum);
 
         return result;
     }
 
-    public void getNum(int numSize, int average,int min,int max){
+    public void getNum(int numSize, double average,int min,int max){
         int test[] = new NumController().createNum(numSize, average,min,max);
         int total = 0;
         if(test[numSize-1]>max){
             getNum(numSize, average, min, max);
         }else {
             for (int i = 0; i < test.length; i++) {
-                System.out.println("第" + (i + 1) + "个数：" + test[i]);
+                System.out.print(/*"第" + (i + 1) + "个数：" +*/ test[i]+" ");
                 total += test[i];
             }
 
@@ -75,7 +75,7 @@ public class NumController {
     public static void main(String[] args) {
         NumController nc=new NumController();
         for (int index=0;index<50;index++){
-            nc.getNum(6,4,1,5);
+            nc.getNum(6,4.16666666666667,1,5);
         }
 
 
