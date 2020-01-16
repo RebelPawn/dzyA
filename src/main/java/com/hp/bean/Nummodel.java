@@ -3,7 +3,7 @@ package com.hp.bean;
 import java.math.BigDecimal;
 
 public class Nummodel {
-    //private int id;
+    private int id;
     private int numId;
     private BigDecimal data;
 
