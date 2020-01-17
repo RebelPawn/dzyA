@@ -1,11 +1,9 @@
 package com.num.bean;
 
-import java.math.BigDecimal;
-
 public class Nummodel {
     private int id;
     private int numId;
-    private BigDecimal data;
+    private double data;
 
     public int getId() {
         return id;
@@ -23,11 +21,11 @@ public class Nummodel {
         this.numId = numId;
     }
 
-    public BigDecimal getData() {
+    public double getData() {
         return data;
     }
 
-    public void setData(BigDecimal data) {
+    public void setData(double data) {
         this.data = data;
     }
 

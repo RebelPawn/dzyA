@@ -21,6 +21,7 @@
     <mappers>
 
         <mapper resource="mapper/hpMapper.xml"></mapper>
+        <mapper resource="mapper/numMapper.xml"></mapper>
     </mappers>
 
 </configuration>

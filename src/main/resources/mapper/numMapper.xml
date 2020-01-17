@@ -3,20 +3,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.num.controller.NumController">
-<!--    &lt;!&ndash;返回集合&ndash;&gt;
+
     <resultMap id="numResult" type="com.num.bean.Nummodel">
         <id property="id" column="id" />
         <result property="numId" column="numId" />
-        <result property="data" column="SQ" />
+        <result property="data" column="SE" />
     </resultMap>
 
-    &lt;!&ndash;查询&ndash;&gt;
-    <select id="selectSQ" resultMap="numResult" >
-        select id,numId,SQ from numDate
-    </select>-->
+
+    <select id="selectSE" resultMap="numResult" >
+        /*select id,numId,SE from numDate where se!=5*/
+        select * from numDate where  se6<![CDATA[ > ]]>5 or se6 <![CDATA[ <]]> 1
+    </select>
+
+    <update id="updateSE" parameterType="com.num.bean.SE">
+        update numDate set se1=#{se1},se2=#{se2},se3=#{se3},se4=#{se4},se5=#{se5},se6=#{se6}
+        where id=#{id}
+    </update>
 
     <select id="selNum" resultType="int">
-        select count(*) from numDate
+        select count(*) from numDate where  se6<![CDATA[ > ]]>5 or se6 <![CDATA[ <]]> 1
     </select>
 
 
