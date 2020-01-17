@@ -1,6 +1,5 @@
-package com.hp.controller;
+package com.num.controller;
 
-import com.hp.bean.Nummodel;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,7 +7,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 import java.util.Random;
 
 public class NumController {
@@ -17,12 +15,14 @@ public class NumController {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession=sqlSessionFactory.openSession(true);
 
-        List<Nummodel> nums=sqlSession.selectList("selectSQ");
+       // List<Nummodel> nums=sqlSession.selectOne("selectSQ");
+        int num=sqlSession.selectOne("selNum");
         sqlSession.close();
+        System.out.println(num+"----");
 
-        for (Nummodel nummodel:nums){
+       /* for (Nummodel nummodel:nums){
             System.out.println(nummodel);
-        }
+        }*/
     }
 
     /**

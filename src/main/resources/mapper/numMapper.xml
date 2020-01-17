@@ -2,14 +2,21 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hp.controller.NumController">
-    <resultMap id="numMap" type="com.hp.bean.Nummodel">
-        <id property="id" column="id" jdbcType="BIGINT"/>
-        <result property="numId" column="numId" jdbcType="BIGINT"/>
-        <result property="data" column="SQ" jdbcType="DECIMAL"/>
+<mapper namespace="com.num.controller.NumController">
+<!--    &lt;!&ndash;返回集合&ndash;&gt;
+    <resultMap id="numResult" type="com.num.bean.Nummodel">
+        <id property="id" column="id" />
+        <result property="numId" column="numId" />
+        <result property="data" column="SQ" />
     </resultMap>
-    <select id="selectSQ" resultMap="numMap" >
-        select id,numId,SQ from num
+
+    &lt;!&ndash;查询&ndash;&gt;
+    <select id="selectSQ" resultMap="numResult" >
+        select id,numId,SQ from numDate
+    </select>-->
+
+    <select id="selNum" resultType="int">
+        select count(*) from numDate
     </select>
 
 

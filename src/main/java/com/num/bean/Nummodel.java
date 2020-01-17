@@ -1,4 +1,4 @@
-package com.hp.bean;
+package com.num.bean;
 
 import java.math.BigDecimal;
 
