@@ -50,7 +50,7 @@ public class NumDao {
     }
     public int[] getNum1(double avg){
         NumDao nd=new NumDao();
-        int[] num1=nd.getNum(6,avg,1,5);
+        int[] num1=nd.getNum(4,avg,1,5);
         return num1;
     }
 }

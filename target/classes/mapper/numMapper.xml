@@ -10,6 +10,17 @@
         <result property="data" column="SE" />
     </resultMap>
 
+    <resultMap id="SqResult" type="com.num.bean.Nummodel">
+        <id property="id" column="id" />
+        <result property="numId" column="numId" />
+        <result property="data" column="SQ" />
+    </resultMap>
+
+    <resultMap id="PvResult" type="com.num.bean.Nummodel">
+        <id property="id" column="id" />
+        <result property="numId" column="numId" />
+        <result property="data" column="PV" />
+    </resultMap>
 
     <select id="selectSE" resultMap="numResult" >
         /*select id,numId,SE from numDate where se!=5*/
@@ -25,6 +36,40 @@
         select count(*) from numDate where  se6<![CDATA[ > ]]>5 or se6 <![CDATA[ <]]> 1
     </select>
 
+    <!--S                           Q-->
+    <select id="selectSQ" resultMap="SqResult" >
+        /*select id,numId,SE from numDate where se!=5*/
+        select * from numDate
+        where  sq6<![CDATA[ > ]]>5 or sq6 <![CDATA[ <]]> 1   /*limit 1 , 3*/
+    </select>
 
+    <update id="updateSQ" parameterType="com.num.bean.SQ">
+        update numDate set sq1=#{sq1},sq2=#{sq2},sq3=#{sq3},sq4=#{sq4},sq5=#{sq5},sq6=#{sq6}
+        where id=#{id}
+    </update>
+
+    <select id="selSqNum" resultType="int">
+        select count(*) from numDate where  sq6<![CDATA[ > ]]>5 or sq6 <![CDATA[ <]]> 1
+    </select>
+
+    <!--P                           V-->
+    <select id="selectPv" resultMap="PvResult" >
+        /*select id,numId,SE from numDate where se!=5*/
+        select * from numDate
+        where
+        /*pv4 is null */
+         pv4<![CDATA[ > ]]>5 or pv4 <![CDATA[ <]]> 1 limit 1 , 3
+    </select>
+
+    <update id="updatePv" parameterType="com.num.bean.PV">
+        update numDate set pv1=#{pv1},pv2=#{pv2},pv3=#{pv3},pv4=#{pv4}
+        where id=#{id}
+    </update>
+
+    <select id="selPvNum" resultType="int">
+        select count(*) from numDate where
+        /*pv4 is null*/
+        pv4<![CDATA[ > ]]>5 or pv4 <![CDATA[ <]]> 1
+    </select>
 
 </mapper>
