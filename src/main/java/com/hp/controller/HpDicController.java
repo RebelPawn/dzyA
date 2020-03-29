@@ -47,7 +47,7 @@ public class HpDicController {
             sqlSession.delete("delRepeat");
             System.out.println("删除重复数据完毕");
             //更新
-            sqlSession.update("updateWords");
+            //sqlSession.update("updateWords");
             System.out.println("更新完毕");
             sqlSession.close();
             br.close();
@@ -75,7 +75,7 @@ public class HpDicController {
     public static void main(String[] args) throws IOException {
 
 
-        String path="D:\\Enbook\\hp1.txt";
+        String path="D:\\hp1.txt";
 
         HpDicController hpDicController=new HpDicController();
         hpDicController.wordImport(path);
