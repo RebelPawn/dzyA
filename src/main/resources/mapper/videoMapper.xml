@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hp.controller">
-    <insert id="addVideoInfo">
-        insert into videofile(fileid,videoName,videoLength) values ()
-    </insert>
+<mapper namespace="com.video.dao.VideoDao">
 
+    <insert id="addVideoInfo" parameterType="com.video.model.VideoInfo">
+        insert into videofile(videoNum,fileName,videoLength) values (#{videoNum},#{fileName},#{videoLength})
+    </insert>
 </mapper>

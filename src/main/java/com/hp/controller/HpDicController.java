@@ -75,7 +75,7 @@ public class HpDicController {
     public static void main(String[] args) throws IOException {
 
 
-        String path="D:\\hp1.txt";
+        String path="D:\\hp1-5.txt";
 
         HpDicController hpDicController=new HpDicController();
         hpDicController.wordImport(path);

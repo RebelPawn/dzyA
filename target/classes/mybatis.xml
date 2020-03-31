@@ -22,6 +22,7 @@
 
         <mapper resource="mapper/hpMapper.xml"></mapper>
         <mapper resource="mapper/numMapper.xml"></mapper>
+        <mapper resource="mapper/videoMapper.xml"></mapper>
     </mappers>
 
 </configuration>

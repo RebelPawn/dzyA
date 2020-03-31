@@ -1,6 +1,7 @@
-package com.hp.controller;
+package com.video.controller;
 
 import com.util.FileUtil;
+import com.video.model.VideoInfo;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -21,9 +22,9 @@ public class VideoController {
         fileUtil.renameFile(path);
         File[] files=fileUtil.getFileList(path);
         List<String[]> infos=new ArrayList<>();
-        String[] info={"",""};
-        for(int index=0;index<files.length;index++){
 
+        for(int index=0;index<files.length;index++){
+            String[] info={"",""};
             String fileName=files[index].getName();
             int length=fileUtil.videoTime(path+fileName);
             info[0]=fileName;
@@ -42,14 +43,19 @@ public class VideoController {
         for (String[] info:videoInfos){
             int num=Integer.parseInt(info[0].split(" ")[0]);
             String fileName=info[0].split(" ")[1];
+            int videoLength=Integer.parseInt(info[1]);
             System.out.println(num+"-----"+fileName+"----"+info[1]);
-           //  sqlSession.insert();
+            VideoInfo videoInfo=new VideoInfo();
+            videoInfo.setVideoNum(num);
+            videoInfo.setFileName(fileName);
+            videoInfo.setVideoLength(videoLength);
+            sqlSession.insert("addVideoInfo",videoInfo);
         }
     }
     public static void main(String[] args) throws IOException {
         VideoController vc=new VideoController();
 
-        String path="E:\\BaiduNetdiskDownload\\尚硅谷Java数据结构和算法\\test\\";
+        String path="E:\\尚硅谷Java数据结构和算法\\test\\";
         List<String[]> infos=vc.getList(path);
 
         vc.add(infos);
