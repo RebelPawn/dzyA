@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba5d77d7-39e1-4a68-afb1-e1bd4ee8022c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/video/dao/VideoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/video/model/VideoInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DataStructure/Array.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/DataStructure/sparsearray/SparseArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hp/controller/HpDicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hp/controller/HpDicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hp/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/video/controller/VideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/videoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/videoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/DataStructure/Array.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/DataStructure/sparsearray/SparseArray.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hp/controller/HpDicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/hp/controller/HpDicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/hp/controller/VideoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/videoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/videoMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +212,7 @@
       <workItem from="1582702193459" duration="10000" />
       <workItem from="1585491072291" duration="2929000" />
       <workItem from="1585527262152" duration="2000000" />
-      <workItem from="1585624971752" duration="8448000" />
+      <workItem from="1585624971752" duration="9472000" />
     </task>
     <task id="LOCAL-00001" summary="信息">
       <created>1575977395782</created>
